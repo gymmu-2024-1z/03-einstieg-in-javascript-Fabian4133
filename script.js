@@ -42,3 +42,80 @@ export function aufgabe01(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
+export function aufgabe02(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentLetter = input[i]
+    const currentUpperCaseLetter = currentLetter.toUpperCase()
+
+    result.push(currentUpperCaseLetter)
+  }
+
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
+
+export function aufgabe03(args) {
+  const input = args
+
+  const result = []
+  let count = 0
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "e") {
+      count = count + 1
+    } else if (currentElement === "E") {
+      count = count + 1
+    }
+  }
+  return count
+}
+linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
+export function aufgabe04(args) {
+  const input = args
+
+  const result = []
+  let count = 0
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === " ") {
+      count = count + 1
+    }
+  }
+  return count + 1
+}
+linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
+
+export function aufgabe05(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement >= "A" && currentElement <= "Z") {
+      return true
+    } else if (currentElement >= "A" && currentElement <= "Z") {
+      return false
+    }
+  }
+}
+
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
+
+export function aufgabe06(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+    if (ascii >= 65 && currentElement <= 90) {
+      return true
+    }
+  }
+  return false
+}
+
+linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
