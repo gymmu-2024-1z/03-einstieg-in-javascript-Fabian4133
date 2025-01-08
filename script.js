@@ -156,97 +156,305 @@ export function aufgabe08(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 
+export function aufgabe08(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      //wenn ein überprüfung dann === und nicht =
+      result.push("3")
+    } else if (currentElement === "E") {
+      result.push("3")
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
+
 export function aufgabe09(args) {
   const input = args
-  return input.length === 6 //Wenn die Anzahl Zeichen in der Eingabe 6 beträgt wird "true" zurück gegeben.
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (input.length > 6) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 
 export function aufgabe10(args) {
-  const input = args
-  const regex = /^#([0-9A-F]{3}){1,2}$/i
-  return regex.test(input) //Testet ob die Eingabe dem RGB Hexcode entspricht
+  const input = args.trim()
+  const hexRegex = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/
+  return hexRegex.test(input)
 }
 
 linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
+
 export function aufgabe11(args) {
   const input = args
-  return input.charCodeAt(0) //nimmt die erste Eingabe und wandelt sie in die Ascii Angabe um
+  return input.charCodeAt(0)
 }
+
 linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
 
 export function aufgabe12(args) {
   const input = args
-  return input.indexOf("e") //gibt den Index von dem ersten gefundenen "e"
+  let result = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      result = i
+      break
+    } else if (currentElement === "E") {
+      result = i
+      break
+    }
+  }
+
+  return result
 }
+
 linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
 
 export function aufgabe13(args) {
   const input = args
-  return input.lastIndexOf("e")
+  let result = 0
+
+  for (let i = input.length - 1; i >= 0; i--) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      result = i
+      break
+    } else if (currentElement === "E") {
+      result = i
+      break
+    }
+  }
+
+  return result
 }
+
 linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
 
 export function aufgabe14(args) {
   const input = args
-  return input.toLowerCase()
+  let result = 0
+  let count = 0
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      count = count + 1
+      if (count === 3) {
+        result = i
+        break
+      }
+    }
+  }
+
+  return result === 0 ? -1 : result
 }
+
 linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
 
 export function aufgabe15(args) {
   const input = args
-  return input.toUpperCase()
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === " ") {
+      break
+    }
+
+    result.push(currentElement)
+  }
+  return result.join("") // text wird angezeigt
 }
+
 linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
 
 export function aufgabe16(args) {
-  const input = args
-  return input.charAt(0).toUpperCase() + input.slice(1)
+  const index = args.indexOf("$")
+  if (index === -1) {
+    return [args]
+  }
+  const firstPart = args.slice(0, index)
+  const secondPart = args.slice(index + 1)
+  return [firstPart, secondPart]
 }
+
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
   const input = args
-  return input.charAt(0).toLowerCase() + input.slice(1)
+  const totalList = []
+  const currentList = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === " ") {
+      totalList.push(currentList.join(""))
+      currentList.length = 0
+    } else {
+      currentList.push(currentElement)
+    }
+  }
+  totalList.push(currentList.join(""))
+  return totalList
 }
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 
 export function aufgabe18(args) {
   const input = args
-  return input.charAt(0).toUpperCase() + input.slice(1)
+  const nameAndAge = aufgabe17(input)
+  const result = []
+
+  result.push("Sie heissen ")
+  result.push(nameAndAge[0])
+  result.push(" und sind ")
+  result.push(nameAndAge[1])
+  result.push(" Jahre alt")
+
+  return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
 
 export function aufgabe19(args) {
   const input = args
-  return input.charAt(0).toLowerCase() + input.slice(1)
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    result.push(currentElement)
+    result.push(currentElement)
+  }
+  return result.join("")
 }
+
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
 
 export function aufgabe20(args) {
   const input = args
-  return input.charAt(0).toUpperCase() + input.slice(1)
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "." && nextElement === " ") {
+    } else {
+      return true
+    }
+    return false
+  }
 }
 linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
 
 export function aufgabe21(args) {
   const input = args
-  return input.charAt(0).toLowerCase() + input.slice(1)
+  const result = []
+  for (let i = input.length - 1; i >= 0; i--) {
+    //wir gehen von hinten nach vorne, indem wir mit dem -1 bei input.lenghth von hinten beginnen
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+  return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
 
 export function aufgabe22(args) {
   const input = args
-  return input.charAt(0).toUpperCase() + input.slice(1)
+  const result = []
+  let foundk = false //wir prüfen, ob k bereits gefunden wurde
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+
+    if (foundk) {
+      //falls k gefunden wurde, bleiben die Zeichen unverändert
+      result.push(currentElement)
+    } else if (ascii >= 32 && ascii <= 94) {
+      //wir geben den ASCII-Wert von allen zahlen und sonderzeichen ausser "_", um es zu erkennen
+
+      result.push("_")
+    } else if (ascii >= 96 && ascii <= 106) {
+      // wir geben den ASCII-Wert von einem Sonderzeichen und den Kleinbuchstaben  a bis j ein, um diese zu erkennen
+      result.push("_")
+    } else if (ascii >= 108 && ascii <= 126) {
+      // wir geben den ASCII-Wert von den Kleinbuchstaben l bis z und Sonderzeichen ein, um diese zu erkennen
+      result.push("_")
+    } else if (ascii === 107) {
+      // wir geben den ASCII-Wert von "k" ein, um diese zu erkennen
+      result.push("k")
+      foundk = true
+    }
+  }
+  return result.join("")
 }
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 
 export function aufgabe23(args) {
   const input = args
-  return input.charAt(0).toLowerCase() + input.slice(1)
+  const result = []
+
+  if (input.length > 0) {
+    const firstElement = input[0]
+    result.push(firstElement + firstElement) //das erste Zeichen wird verdoppelt
+
+    for (let i = 1; i < input.length; i++) {
+      const currentElement = input[i]
+      result.push(currentElement)
+    }
+    result.push(firstElement) // das erste Zeichen wird wieder hinzugefügen
+  }
+  return result.join("")
+  //füge das Zeichen am ende hinzu
 }
 linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
+
+export function aufgabe24(args) {
+  const input = args
+  if (input.length <= 1) {
+    return input
+    //falls die eingabe nur ein zeichen hat, bleibt es unverändert
+  }
+  const result = []
+
+  const firstElement = input[0]
+  const lastElement = input[input.length - 1] //das letzte Zeichen wird gespeichert und wir zählen von -1 ab
+
+  result.push(lastElement) //das letzte Zeichen wird hinzugefügt
+
+  for (let i = 1; i < input.length - 1; i++) {
+    const currentElement = input[i]
+    result.push(currentElement)
+  }
+
+  result.push(firstElement)
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
 export function aufgabe24(args) {
   const input = args
@@ -267,3 +475,48 @@ export function aufgabe25(args) {
   return first.localeCompare(second) > 0 ? second + first : first + second //Wenn der erste Zeichen kleiner ist als der zweite Zeichen dann sollen diese Zeichen getauscht werden
 }
 linkupExerciseHandler("[data-click=aufgabe25]", aufgabe25)
+
+export function aufgabe26(args) {
+  const input = args
+  if (input.length <= 1) {
+    return input
+  }
+  const first = input[0]
+  const second = input[1]
+  return first.localeCompare(second) > 0 ? second + first : first + second //Wenn der erste Zeichen kleiner ist als der zweite Zeichen dann sollen diese Zeichen getauscht werden
+}
+linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
+
+export function aufgabe27(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement >= "A" && currentElement <= "Z") {
+      // Wenn das aktuelle Element ein Zeichen zwischen "A" und "Z" ist gibt der Counter true zuruck
+      return true
+    } else if (currentElement >= "A" && currentElement <= "Z") {
+      // Wenn das aktuelle Element nicht ein Zeichen zwischen "A" und "Z" ist gibt der Counter false zuruck
+      return false
+    }
+  }
+}
+linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+export function aufgabe28(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+    if (ascii >= 65 && ascii <= 90) {
+      // Wenn der Zeichen zwischen den Ascii werten von 65 und 90 liegt(Grossbuchstaben) dann soll der Counter nichts machen.
+    } else if (ascii >= 97 && ascii <= 122) {
+      // Wenn der Zeichen zwischen den Ascii werten von 97 und 122 liegt(Kleinbuchstaben) dann soll der Counter nichts machen.
+    } else {
+      return true //Wenn keine der Bedingungen erfüllt sind, dann gibt der Counter "true" zuruck
+    }
+  }
+  return false
+}
+linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
