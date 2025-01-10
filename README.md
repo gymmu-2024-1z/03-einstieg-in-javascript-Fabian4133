@@ -155,3 +155,11 @@ Falls ja geben Sie die Summe als Ausgabe aus; sonst Fehlermeldung.
 
 Immer wenn ein Grossbuchstabe in der Eingabe vorkommt, soll dieser mit seinem
 Nachfolger vertauscht werden
+
+## Aufgabe 30
+
+Man testet ob die Eingabe mehr als 5 Zeichen hat.
+
+## Aufgabe 31
+
+Man verdoppelt die Eingabe
