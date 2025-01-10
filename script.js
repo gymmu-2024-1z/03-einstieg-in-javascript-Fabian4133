@@ -156,27 +156,6 @@ export function aufgabe08(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 
-export function aufgabe08(args) {
-  const input = args
-  const result = []
-
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-
-    if (currentElement === "e") {
-      //wenn ein überprüfung dann === und nicht =
-      result.push("3")
-    } else if (currentElement === "E") {
-      result.push("3")
-    } else {
-      result.push(currentElement)
-    }
-  }
-  return result.join("")
-}
-
-linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
-
 export function aufgabe09(args) {
   const input = args
   const result = []
@@ -456,15 +435,6 @@ export function aufgabe24(args) {
 
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
-export function aufgabe24(args) {
-  const input = args
-  if (input.length <= 1) {
-    return input
-  }
-  return input[input.length - 1] + input.slice(1, -1) + input[0]
-}
-linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
-
 export function aufgabe25(args) {
   const input = args
   if (input.length <= 1) {
@@ -492,31 +462,60 @@ export function aufgabe27(args) {
   const result = []
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (currentElement >= "A" && currentElement <= "Z") {
-      // Wenn das aktuelle Element ein Zeichen zwischen "A" und "Z" ist gibt der Counter true zuruck
+    if (currentElement >= "0" && currentElement <= "9") {
+      // Wenn das aktuelle Element ein Zeichen zwischen "0" und "9" (Zahl) ist gibt der Counter true zuruck
       return true
-    } else if (currentElement >= "A" && currentElement <= "Z") {
-      // Wenn das aktuelle Element nicht ein Zeichen zwischen "A" und "Z" ist gibt der Counter false zuruck
+    } else if (currentElement >= "0" && currentElement <= "9") {
+      // Wenn das aktuelle Element nicht ein Zeichen zwischen "0" und "9" ist gibt der Counter false zuruck
       return false
     }
   }
 }
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
 
-export function aufgabe28(args) {
+export function aufgabe28(args) {}
+linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
+
+export function aufgabe29(args) {
+  const input = args
+  let result = ""
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement >= "A" && currentElement <= "Z") {
+      // Wenn das aktuelle Element ein Grossbuchstabe ist, tausche es mit seinem Nachfolger
+      result += input[i + 1] + currentElement
+      i++
+    } else {
+      result += currentElement
+    }
+  }
+  return result
+}
+linkupExerciseHandler("[data-click=aufgabe29]", aufgabe29)
+
+export function aufgabe30(args) {
   const input = args
   const result = []
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    const ascii = currentElement.charCodeAt(0)
-    if (ascii >= 65 && ascii <= 90) {
-      // Wenn der Zeichen zwischen den Ascii werten von 65 und 90 liegt(Grossbuchstaben) dann soll der Counter nichts machen.
-    } else if (ascii >= 97 && ascii <= 122) {
-      // Wenn der Zeichen zwischen den Ascii werten von 97 und 122 liegt(Kleinbuchstaben) dann soll der Counter nichts machen.
-    } else {
-      return true //Wenn keine der Bedingungen erfüllt sind, dann gibt der Counter "true" zuruck
+    if (input.length > 5) {
+      // Wenn die Eingabe mehr als 5 Zeichen hat, gibt der Counter false zurÜck
+      return true
+    } else if (input.length > 5) {
+      // Wenn die Eingabe weniger als 5 Zeichen hat, gibt der Counter false zurÜck
+      return false
     }
   }
-  return false
 }
-linkupExerciseHandler("[data-click=aufgabe28]", aufgabe28)
+linkupExerciseHandler("[data-click=aufgabe30]", aufgabe30)
+
+export function aufgabe31(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    result.push(input[i])
+    result.push(input[i])
+  } // Die Eingabe wird verdoppelt
+  return result.join("")
+}
+linkupExerciseHandler("[data-click=aufgabe31]", aufgabe31)
